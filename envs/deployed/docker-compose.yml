@@ -22,7 +22,7 @@ services:
       retries: 6
 
   validator:
-    image: ghcr.io/kacper-wolkiewicz-reef/test-subnet-validator-${ENVIRONMENT:?}:v0-latest
+    image: ghcr.io/kacper-wolkiewicz-reef/test-subnet-validator-${ENVIRONMENT:?}@sha256:25576fd872d49d221b01ca11841a47410383f5f129a3ecaa4721248a931717f5
     restart: unless-stopped
     env_file: ./.env
     environment:
