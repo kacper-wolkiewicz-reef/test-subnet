@@ -1,0 +1,21 @@
+name: Release (miner)
+
+on:
+  push:
+    tags:
+      - 'miner-v*'
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    uses: reef-technologies/release-toolkit/.github/workflows/release-notify.yml@v0.2.0
+    with:
+      package_dir: miner
+      tag_prefix: miner-v
+      python_version: '3.11'
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    permissions:
+      contents: write

@@ -26,11 +26,23 @@ only-include = ["miner.py"]
 [tool.uv]
 exclude-newer = "1 week"
 
+[tool.commitizen]
+name = "impacts_cz"
+version_provider = "pep621"
+tag_format = "miner-v$version"
+annotated_tag = true
+changelog_file = "CHANGELOG.md"
+update_changelog_on_bump = true
+changelog_merge_prerelease = true
+bump_message = "bump: miner $current_version -> $new_version"
+impacts = ["miner"]
+major_version_zero = true
 [dependency-groups]
 dev = [
     "basedpyright>=1.36.1",
     "ruff",
     "pytest",
+    "release-toolkit>=0.2.1,<1",
 ]
 
 [tool.ruff]
